@@ -1,32 +1,48 @@
-const user = [
+let users = [
     {
+        id: 1,
         name: "Diana Prince",
-        alterEgo: "Wonder Woman",
+        alter_ego: "Wonder Woman",
         phone: 916542,
         email: "prince@justiceleage.dc"
     },
     {
+        id: 2,
         name: "Bruce Wayne",
-        alterEgo: "Batman",
+        alter_ego: "Batman",
         phone: 916542,
         email: "wayne@justiceleage.dc"
     },
     {
+        id: 3,
         name: "Dinah Lance",
-        alterEgo: "Black Canary",
+        alter_ego: "Black Canary",
         phone: 785235,
         email: "lance@justiceleage.dc"
     },
     {
+        id: 4,
         name: "Clark Kent",
-        alterEgo: "Superman",
+        alter_ego: "Superman",
         phone: 654786,
         email: "kent@justiceleage.dc"
     }
 ];
 
 function getAllUsers() {
-    return user;
+    return users;
 }
 
-module.exports = { getAllUsers };
+function getUser(id) {
+    const foundUser = users.filter(user => {
+        return user.id === id
+    });
+    return foundUser;
+}
+
+function addUser(user) {
+    users.push(user);
+    return users;
+}
+
+module.exports = { getAllUsers, addUser, getUser };
